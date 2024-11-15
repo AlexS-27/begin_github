@@ -29,23 +29,32 @@ def comparaison (objet_choisis, bitfield):
 #initialisation du bitfield
 bitfield = 0b00000000
 
-#boucle pour ajouter des objet au bitfield
-while True:
-    objet_choisis = input("Choisissez un objet à ajouter (ou taper 'stop' pour arrêter) : ")
+def afficher_inventaire():
+    if objet & cuilliere:
+        print(" -Cuilliere")
+    if objet & fourchette:
+        print(" -Fourchette")
+    if objet & couteau:
+        print(" -Couteau")
+    if objet & gamelle:
+        print(" -Gamelle")
+        if objet & lampe:
+        print(" -Lampe")
+    if objet & pince:
+        print(" -Pince")
+    if objet & tournevis:
+        print(" -Tournevis")
+    if objet & marteau:
+        print(" -Marteau")
 
-    if objet_choisis.lower() == "stop":
-        break
+def ajouter_couteau():
+    global objet
+    objet |= couteau
+    print("Mis un couteau dans l'inventaire")
 
-    if objet_choisis in objet:
-        #Activer le bit correspandant
-        index = objet.index(objet_choisis)
-        bitfield |= (1 << index)
-        print(f"Objet choisis: {objet_choisis} a bien été ajouté")
-    else:
-        print(f"objet non reconnu")
 
 for i, nom in enumerate(objet):
     if (bitfield & (1 << i)) != 0:
         print(f"x - {nom}")
     else:
-        print("o")
+        print(f"o - {nom}")
