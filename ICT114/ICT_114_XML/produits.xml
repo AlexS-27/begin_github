@@ -1,7 +1,21 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<href></href>
-<produit>
-    <nom>XML par la pratique</nom>
-    <prix>20</prix>
-    <comment>Comment programmer des applications XML</comment>
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/css" href="produits.css"?>
+<produit class="container">
+    <selection>
+        <nom>XML par la pratique</nom>
+        <prix>20</prix>
+        <comment>Comment programmer des applications XML</comment>
+    </selection>
+
+    <selection>
+        <nom>l'art de python</nom>
+        <prix>20</prix>
+        <comment>Les bases de python</comment>
+    </selection>
+
+    <selection>
+        <nom>Vm ware</nom>
+        <prix>15</prix>
+        <comment>Réaliser sa première machine virtuelle</comment>
+    </selection>
 </produit>
