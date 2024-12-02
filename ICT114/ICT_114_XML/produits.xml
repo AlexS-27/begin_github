@@ -8,8 +8,8 @@
     </selection>
 
     <selection>
-        <nom>l'art de python</nom>
-        <prix>20</prix>
+        <nom>l'art de python,</nom>
+        <prix monnaie="Franc suisse">20.-,</prix>
         <comment>Les bases de python</comment>
     </selection>
 

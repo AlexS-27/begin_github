@@ -3,8 +3,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 90%;
+    background: bisque;
+    font-family: "Arial Narrow";
+    font-weight: bold;
 }
 
 .container selection {
     border: solid black 1px;
+    width: 45%;
+    margin: 10px;
+    background: white;
 }
