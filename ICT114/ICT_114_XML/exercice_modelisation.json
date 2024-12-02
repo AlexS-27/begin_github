@@ -1,0 +1,30 @@
+{
+  "conversation" : [
+    {
+      "liste_messages" : [
+        {
+          "date" : "02.12.24",
+          "sujet" : "noël",
+          "contenu" : "on mange quoi?",
+          "catégorie" : {
+            "nouriture" : "poulet",
+            "boisson" : "alcool"
+          },
+          "urgence" : "Moyenne",
+          "sens" : "A to B"
+        },
+        {
+          "date" : "01.12.24",
+          "sujet" : "nouvel an",
+          "contenu" : "On le fait oú?",
+          "catégorie" : {
+            "lieu": "Suisse",
+            "habitation" : "maison"
+          },
+          "urgence" : "haute",
+          "sens" : "B to A"
+        }
+      ]
+    }
+  ]
+}

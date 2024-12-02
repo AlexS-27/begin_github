@@ -1,0 +1,14 @@
+<!DOCTYPE Playlist [
+        <!ELEMENT Playlist (Song)+>
+        <!ELEMENT Song (Singer,Featuring*,Price+)*>
+        <!ATTLIST Song
+                Author CDATA #REQUIRED
+                Company CDATA #IMPLIED
+                Title CDATA #REQUIRED
+                Year CDATA #REQUIRED>
+        <!ELEMENT Singer (#PCDATA)>
+        <!ELEMENT Featuring (#PCDATA)>
+        <!ELEMENT Price (#PCDATA)>
+        <!ATTLIST Price
+                Currency CDATA #REQUIRED>
+        ]>
