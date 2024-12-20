@@ -1,26 +1,23 @@
 {
   "villes" : [
     {
-      "choix" : [
-      {
-        "nom" : "",
-        "population": "",
-        "superficie": "",
-        "altitude": ""
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
       },
-      {
-        "nom" : "",
-        "population": "",
-        "superficie": "",
-        "altitude": ""
-      },
-      {
-        "nom" : "",
-        "population": "",
-        "superficie": "",
-        "altitude": ""
-      }
-    ]
+    {
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
+    },
+    {
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
     }
   ]
 }
+
