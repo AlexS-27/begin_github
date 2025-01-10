@@ -1,0 +1,23 @@
+{
+  "villes" : [
+    {
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
+      },
+    {
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
+    },
+    {
+      "nom" : "",
+      "population": "",
+      "superficie": "",
+      "altitude": ""
+    }
+  ]
+}
+

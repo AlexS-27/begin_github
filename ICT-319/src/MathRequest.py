@@ -1,5 +1,3 @@
-from ICT_319.src.MathLib import MathLib
-
 class MathRequest:
 
     def __init__ (self, ope1, oper, ope2,):
