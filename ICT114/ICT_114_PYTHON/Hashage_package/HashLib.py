@@ -1,28 +1,23 @@
 import random
-from curses.ascii import isdigit
 
 from ICT114.ICT_114_PYTHON.Hashage_package.HashRequest import HashRequest
 
 class CardHash:
     # constante définissant la langueur du numéro de carte attendu
+    card_number = None
     card_length = 15
 
     def __init__(self):
         pass
-
-    def isdigit(self):
-        pass
-
-
-    def validate_card_number(self):
+    @classmethod
+    def validate_card_number(cls, card_number):
         """
         vérifie si le numéro de carte est valide avec l'algorithme de Luhn.'
         """
-        card_number = HashRequest.get_card_number
-        return len(card_number) == self.card_length and \
+        return len(cls.card_number) == cls.card_length and \
         card_number.isdigit()
-
-    def calculate_luhn_last_digit(self):
+    @classmethod
+    def calculate_luhn_last_digit(cls, card_number):
         """
         Calcule le dernier chiffre d'un numéro de carte
         de crédit pour rendre valide avec l'algorithme de Luhn.
@@ -30,22 +25,22 @@ class CardHash:
         """
         Étape 1 : Vérification de l'entrée
         """
-        if not self.validate_card_number():
+        if not cls.validate_card_number(card_number):
             return "Erreur: Entrez exactement 15 chiffres."
         """
         Étape 2 : Convertir la chaîne de caractères en une liste de chiffres
         """
-        digits = [int(d) for d in self.card_number]  # Chaque caractère devient un chiffre entier
+        digits = [int(d) for d in cls.card_number]  # Chaque caractère devient un chiffre entier
         """
         Étape 3 : Appliquer l'algorithme de Luhn sur les 15 chiffres
         """
-        checksum =self.calculate_luhn_checksum(digits)
+        checksum = cls.calculate_luhn_checksum(digits)
         """
         Étape 4 : Calculer le dernier chiffre (chiffre de contrôle)
         """
         # 1. Vérifie si le nombre est divisible par 10,2. Dit combien il manque pour faire 10 (donne le nombre manquant)3: vérifie que le nombre est compris entre 1-9.
         last_digit = (10 - (checksum % 10)) % 10
-        return HashRequest.get_last_digit(last_digit)
+        return HashRequest.get_last_digit(last_digit, 2)
 
     @staticmethod
     def calculate_luhn_checksum(digits):
@@ -74,20 +69,3 @@ class CardSelector:
         """
         return ''.join(str(random.randint(0, 9)) for _
         in range(length))
-
-    def get_card_number_input(self):
-
-        choice = HashRequest.get_user_input
-        if choice == 'manuel':
-            HashRequest.get_card_number = input("Entrez les 14 premiers chiffres de"
-            "votre numéro de carte de crédit : ")
-            return HashRequest.get_card_number
-        elif choice == 'auto':
-            HashRequest.get_card_number =\
-                self.generate_random_card_number()
-            print(f"Numéro aléatoire généré : {HashRequest.get_card_number}")
-            return HashRequest.get_card_number
-
-        else:
-            print("Choix invalide. Veuillez réessayer.")
-            return None
