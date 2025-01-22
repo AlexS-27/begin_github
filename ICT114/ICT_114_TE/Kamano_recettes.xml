@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<livre_de_recette>
+    <recette>
+        <titre>Fondant au chocolat</titre>
+        <temps_de_préparation>20</temps_de_préparation>
+        <temps_de_cuisson>25</temps_de_cuisson>
+        <nombre_de_personnes>6</nombre_de_personnes>
+        <ingrédient>
+            <quantité>Farine, 20g</quantité>
+            <quantité>sucre glace, 200g</quantité>
+            <quantité>Chocolat noir, 200g</quantité>
+            <quantité>Oeuf, 5 pièces</quantité>
+            <quantité>Beurre, 200g</quantité>
+        </ingrédient>
+        <etape>
+            <ordre>Préchauffez le four à th 6 (180°), beurrez et farinez un mou­le à manqué.</ordre>
+            <ordre>Faites fondre le chocolat et le beurre coupés en morceaux au micro-ondes ou au bain-marie.</ordre>
+            <ordre>Ajoutez les œufs un à un en mélangeant au fouet à main, puis la farine et le sucre, remuez bien et versez la préparation dans le moule.</ordre>
+            <ordre>Enfournez pour 25 min, laissez tiédir puis démoulez. Mettez au frais avant de servir. L'idéal étant de le préparer la veille.</ordre>
+        </etape>
+    </recette>
+    <recette>
+        <titre>Cheeseburger maison</titre>
+        <temps_de_préparation>30</temps_de_préparation>
+        <temps_de_cuisson>10</temps_de_cuisson>
+        <nombre_de_personnes>4</nombre_de_personnes>
+        <ingrédient>
+            <quantité>pain hamburger, 4 pièces</quantité>
+            <quantité>gruyère, 4 tranches</quantité>
+            <quantité>laitue, 4 feuilles</quantité>
+            <quantité>tomate, 1 pièce</quantité>
+            <quantité>steak haché. 4 pièces</quantité>
+            <quantité>sauce hamburger, 2 cuillères à soupe</quantité>
+        </ingrédient>
+        <etape>
+            <ordre>Lavez la tomate et coupez-la en rondelles. Lavez la laitue et réservez les 4 feuilles.</ordre>
+            <ordre>Saisir les steaks à feu vif dans une poêle légèrement huilée ou sur un gril 1 min de chaque côté. Baissez le feu et poursuivez la cuisson 2 min de chaque côté pour une cuisson saignante (4 pour une cuisson à point).</ordre>
+            <ordre>En fin de cuisson, salez, poivrez et placez une tranche de gruyère sur chaque steak pour le faire fondre.</ordre>
+            <ordre>Ouvrez les pains à burger et faites-les dorer au grille-pain. Tartinez les bases des pains de sauce, déposez dessus les steaks au fromage, les rondelles de tomate et les feuilles de laitue. Refermez les burgers. Servez aussitôt avec des frites maison et du ketchup.</ordre>
+        </etape>
+    </recette>
+</livre_de_recette>
