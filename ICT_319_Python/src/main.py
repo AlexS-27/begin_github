@@ -1,4 +1,4 @@
-from src.Math_Request import MathRequest
+from ICT_319_Python.src.MathRequest import MathRequest
 
 def main():
     math_request = ask_user_input()
