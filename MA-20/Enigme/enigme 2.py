@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 import time
 import math
+import bisect
 
 def find_triangle_rect_entier():
     try:
@@ -17,30 +18,24 @@ def find_triangle_rect_entier():
 
         # Initialiser les compteurs
         start_time = time.time()  # Début du chronomètre
-        numbers_tested = 0
+        couple_tested = 0
         solutions = []
 
 
-        # Trouver les carrés harshad (ex: 2025)
-        # Solution brute force un peu stupide
+        # Trouver les triangles rectangles
+        # Solution simple
         for a in range(min_val, max_val + 1):
-            for b in range(min_val, max_val + 1):
-
-                c2 = a ** 2 + b ** 2
-                c = int(math.sqrt(c2))
+            for b in range(a+1, max_val + 1):
                 if math.gcd(a, b) == 1:
+                    couple_tested += 1
+                    c2 = a ** 2 + b ** 2
+                    c = int(math.sqrt(c2))
                     if c ** 2 == c2:
                         solutions.append((a, b, c))
 
-            numbers_tested += 1
-            square_a = int(math.sqrt(a)) # prendre la racine de a (entière)
-            # somme des chiffres
             sum_of_digits=0
             for digit in str(a):
                 sum_of_digits +=int(digit) # calculer la somme des chiffres
-
-            if a % sum_of_digits==0 and square_a ** 2 == a: #si carré harshad
-                    solutions.append(a)
 
         # Calcul du temps d'exécution
         end_time = time.time()
@@ -48,17 +43,15 @@ def find_triangle_rect_entier():
 
         # Afficher les résultats dans la Text box
         text_output.delete("1.0", tk.END)  # Effacer les résultats précédents
-        text_output.insert(tk.END, f"Nombres testés : {numbers_tested}\n")
-        text_output.insert(tk.END, f"Carrés harshad trouvés : {len(solutions)}\n")
+        text_output.insert(tk.END, f"Couple testés : {couple_tested}\n")
+        text_output.insert(tk.END, f"Triangle rectangle trouvés : {len(solutions)}\n")
         text_output.insert(tk.END, f"Temps de calcul : {elapsed_time:.2f} ms\n\n")
-        #2f = 2 décimal / \m saut à la ligne
-
 
         if solutions: # si solution n'est pas vide
             for sol in solutions:
                 text_output.insert(tk.END, f"{sol}\n")
         else:
-            text_output.insert(tk.END, "Aucun carré harshad trouvé.\n")
+            text_output.insert(tk.END, "Aucun triangle rectangle trouvé.\n")
 
     except ValueError as e:
         messagebox.showerror("Erreur", str(e))
@@ -76,24 +69,24 @@ def find_triangle_rect_smart():
 
         # Initialiser les compteurs
         start_time = time.time()  # Début du chronomètre
-        numbers_tested = 0
+        couples_tested = 0
         solutions = []
+        squares = []
 
+        for i in range(min_val, int(max_val * 1.42)):
+            squares.append(i**2)
         # Trouver carrés harshad
         # solution plus maline à programmer ici
-        for n in range(int(math.sqrt(min_val)),int(math.sqrt(max_val)) ):
-            numbers_tested += 1
-            #calculer a = n ** 2
-            a = n ** 2
-            #calculs = somme des chiffres de a
-            # somme des chiffres
-            sum_of_digits = 0
-            for digit in str(a):
-                sum_of_digits += int(digit)  # calculer la somme des chiffres
-            #si est divisble par s
-            if a % sum_of_digits == 0:
-                #ajouter solution
-                solutions.append(a)
+
+        for a in range(min_val, max_val + 1):
+            for b in range(a + 1, max_val + 1):
+                if math.gcd(a, b) == 1:
+                    couples_tested += 1
+                    c2 = a ** 2 + b ** 2
+                    #c=int(math.sqrt(c2))
+                    if squares[bisect.bisect_left(squares, c2)] == c2:
+                    #if c2 in squares:
+                        solutions.append((a, b, int(math.sqrt(c2))))
 
         # Calcul du temps d'exécution
         end_time = time.time()
@@ -101,15 +94,15 @@ def find_triangle_rect_smart():
 
         # Afficher les résultats dans la Text box
         text_output.delete("1.0", tk.END)  # Effacer les résultats précédents
-        text_output.insert(tk.END, f"Couple testés : {numbers_tested}\n")
-        text_output.insert(tk.END, f"Solutions trouvées : {len(solutions)}\n")
+        text_output.insert(tk.END, f"Couple testés : {couples_tested}\n")
+        text_output.insert(tk.END, f"Triangle rectangle trouvées : {len(solutions)}\n")
         text_output.insert(tk.END, f"Temps de calcul : {elapsed_time:.2f} ms\n\n")
 
         if solutions:
             for sol in solutions:
                 text_output.insert(tk.END, f"{sol}\n")
         else:
-            text_output.insert(tk.END, "Aucun carré harshad trouvé.\n")
+            text_output.insert(tk.END, "Aucun triangle rectangle trouvé.\n")
 
     except ValueError as e:
         messagebox.showerror("Erreur", str(e))
@@ -119,7 +112,7 @@ def find_triangle_primitif():
 
     #Interface tkinter
 root = tk.Tk()
-root.title("Recherche de carrés harshad")
+root.title("Recherche de triangle carré")
 
 # Labels et champs d'entrée
 tk.Label(root, text="Valeur minimale (min):").grid(row=0, column=0, padx=10, pady=5, sticky="e")
