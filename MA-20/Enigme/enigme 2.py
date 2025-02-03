@@ -28,9 +28,9 @@ def find_triangle_rect_entier():
 
                 c2 = a ** 2 + b ** 2
                 c = int(math.sqrt(c2))
-
-                if c ** 2 == c2:
-                    solutions.append((a, b, c))
+                if math.gcd(a, b) == 1:
+                    if c ** 2 == c2:
+                        solutions.append((a, b, c))
 
             numbers_tested += 1
             square_a = int(math.sqrt(a)) # prendre la racine de a (entière)
@@ -85,7 +85,7 @@ def find_triangle_rect_smart():
             numbers_tested += 1
             #calculer a = n ** 2
             a = n ** 2
-            #calcul s = somme des chiffres de a
+            #calculs = somme des chiffres de a
             # somme des chiffres
             sum_of_digits = 0
             for digit in str(a):
