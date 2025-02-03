@@ -108,7 +108,51 @@ def find_triangle_rect_smart():
         messagebox.showerror("Erreur", str(e))
 
 def find_triangle_primitif():
-    a = 0
+    try:
+        # Récupérer les bornes min et max
+        min_val = int(entry_min.get())
+        max_val = int(entry_max.get())
+        if min_val < 0 or max_val < 0 or min_val > max_val:
+            raise ValueError("Les bornes doivent être des entiers positifs et min ≤ max.")
+
+        # Initialiser les compteurs
+        start_time = time.time()  # Début du chronomètre
+        couples_tested = 0
+        triples = []
+
+
+        for m in range(2, int(math.sqrt(max_val * 1.414))+1):
+            for n in range(1, int(m - 1)):
+                if math.gcd(m, n) == 1 and (m%2 != n%2):
+                    couples_tested += 1
+
+                    a = 2 * m * n
+                    b = m ** 2 - n ** 2
+                    c = m ** 2 + n ** 2
+                    if a <= max_val and b <= max_val:
+                        if a > b:
+                            a ,b = b, a
+                        triples.append((a, b, c))
+
+        triples.sort()
+        # Calcul du temps d'exécution
+        end_time = time.time()
+        elapsed_time = (end_time - start_time) * 1000  # En millisecondes
+
+        # Afficher les résultats dans la Text box
+        text_output.delete("1.0", tk.END)  # Effacer les résultats précédents
+        text_output.insert(tk.END, f"Couple testés : {couples_tested}\n")
+        text_output.insert(tk.END, f"Triangle rectangle trouvées : {len(triples)}\n")
+        text_output.insert(tk.END, f"Temps de calcul : {elapsed_time:.2f} ms\n\n")
+
+        if triples:
+            for sol in triples:
+                text_output.insert(tk.END, f"{sol}\n")
+        else:
+            text_output.insert(tk.END, "Aucun triangle rectangle trouvé.\n")
+
+    except ValueError as e:
+        messagebox.showerror("Erreur", str(e))
 
     #Interface tkinter
 root = tk.Tk()
