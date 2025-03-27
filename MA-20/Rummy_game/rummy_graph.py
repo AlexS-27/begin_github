@@ -191,7 +191,7 @@ def add_tile_to_group(event, tile, group, index):
             selected_tile = None
             draw_game(canvas)
         else:
-            messagebox.showwarning("Invalid Move", "Impossible de déplacer ce jeton" + st(new_sequence))
+            messagebox.showwarning("Invalid Move", "Impossible de déplacer ce jeton" + str(new_sequence))
 
 def best_play():
     """Détermine le meilleur coup à jouer"""

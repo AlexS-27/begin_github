@@ -19,6 +19,6 @@ def hash_pdf(file_path):
         return f"Le fichier {file_path} n'a pas été trouvé."
 
 # Exemple d'utilisation
-file_path = "Hello.pdf"  # Remplacer par le chemin de votre fichier PDF
+file_path = "Alex_Kamano.pdf"  # Remplacer par le chemin de votre fichier PDF
 hash_result = hash_pdf(file_path)
 print(f"Le hash SHA-256 du fichier est : {hash_result}")
